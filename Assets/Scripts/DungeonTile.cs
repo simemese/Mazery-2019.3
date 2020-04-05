@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class DungeonTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Enumerations.tileType tileType { get; set; }
+    public int rowCoordinate { get; set; }
+    public int columnCoordinate { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

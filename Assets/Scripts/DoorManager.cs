@@ -6,6 +6,7 @@ public class DoorManager : MonoBehaviour
 {
     [SerializeField] Door doorPrefab;
     [SerializeField] List<Sprite> doorSpriteList;
+    public Enumerations.color color;
     float doorHeight;
     float doorWidth;
     float dungeonSizeX;
@@ -36,12 +37,12 @@ public class DoorManager : MonoBehaviour
         door.transform.Rotate(0, 0, -90);
         door.transform.localPosition = new Vector3(0, -dungeonSizeY / 2 + doorWidth / 2, 0);
 
-        //generate a right door
+        //generate a left door
         door = GenerateDoorObject();
-        door.transform.Rotate(0, 0, 0);
+        door.transform.Rotate(0, 0, 180);
         door.transform.localPosition = new Vector3(-dungeonSizeX / 2 + doorWidth / 2, 0, 0);
 
-        //generate a left door
+        //generate a right door
         door = GenerateDoorObject();
         door.transform.Rotate(0, 0, 0);
         door.transform.localPosition = new Vector3(dungeonSizeX / 2 - doorWidth / 2, 0, 0);
@@ -61,7 +62,9 @@ public class DoorManager : MonoBehaviour
         int spriteCount = doorSpriteList.Count;
         int randomIndex = Random.Range(0, spriteCount);
 
-        return doorSpriteList[randomIndex];
+        Sprite doorSprite = doorSpriteList[randomIndex];
+
+        return doorSprite;
 
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2521245748145352639}
   - component: {fileID: 72821791699371471}
   - component: {fileID: 8607114849158557399}
+  - component: {fileID: 4624052077845892550}
   m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
@@ -93,6 +94,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190f30630415950469cc13b92e5e7315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4624052077845892550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543536453620184386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421aa8f77bf76ce42b3eca176c38a9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorSpriteList:
+  - {fileID: 21300000, guid: c6e29d4311e7e694b99fa100d5e64450, type: 3}
+  - {fileID: 21300000, guid: 1865fa45d3a9bdd4cbde4d4ea2fa8782, type: 3}
+  - {fileID: 21300000, guid: d5e346d97467ae648b623e4c78495b09, type: 3}
+  - {fileID: 21300000, guid: 085aebdc69eee204fadbdc07e9d266e2, type: 3}
+  - {fileID: 21300000, guid: 4b78a558f5e80f04fbfc85924260fb1b, type: 3}
+  - {fileID: 21300000, guid: 75057b70358c3bc46b0d0b1e621ecccd, type: 3}
 --- !u!1 &8757358299356746077
 GameObject:
   m_ObjectHideFlags: 0
