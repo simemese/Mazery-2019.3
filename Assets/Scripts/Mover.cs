@@ -6,11 +6,6 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;
-    float xMinimum;
-    float xMaximum;
-
-    float yMinimum;
-    float yMaximum;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +28,7 @@ public class Mover : MonoBehaviour
         var newXPosition = transform.position.x + deltaX;
         var newYPosition = transform.position.y + deltaY;
 
-        transform.position = new Vector2(newXPosition, newYPosition);
+        transform.position = new Vector3(newXPosition, newYPosition,0);
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }

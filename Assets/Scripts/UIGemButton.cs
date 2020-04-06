@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class UIGemButton : MonoBehaviour,IPointerDownHandler
 {
     [SerializeField] Enumerations.color color;
-    [SerializeField] int manaCost;
     public int currentGemNumber;
     Text gemNumber;
     Animator animator;
@@ -54,6 +53,7 @@ public class UIGemButton : MonoBehaviour,IPointerDownHandler
 
         if (isConverterActive)
         {
+            int manaCost = inventory.GetManaCost(color);
             mana.AdjustMana(-manaCost);
             Enumerations.color convertedColor = gemConverter.ConvertGemColor(color);
             inventory.UseGems(color, 1);
@@ -70,8 +70,4 @@ public class UIGemButton : MonoBehaviour,IPointerDownHandler
         }
     }
 
-    public int GetManaCost()
-    {
-        return manaCost;
-    }
 }

@@ -37,6 +37,7 @@ public class Wizard : MonoBehaviour
         {
             inventory.UseGems(color, 1);
             Destroy(doorObject);
+            nearDoor = false;
         }
     }
 }

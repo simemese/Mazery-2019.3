@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 4844635247055984137}
   - component: {fileID: 6885528258486636106}
   - component: {fileID: 3879525054872515687}
+  - component: {fileID: 6542158707974821958}
   m_Layer: 8
   m_Name: DungeonTile
   m_TagString: Untagged
@@ -205,6 +206,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9a450ada53a89cf41849400497fec641, type: 3}
   - {fileID: 21300000, guid: 49ca1df92875cd64ea24b459ab86212e, type: 3}
   - {fileID: 21300000, guid: ca3d43f43c5be8d44bc50188b5d2fbba, type: 3}
+  color: 0
 --- !u!212 &3879525054872515687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -254,3 +256,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6542158707974821958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757358299356746077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b958a19f6ae56447af4ba9dd5f617aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemSpriteList:
+  - {fileID: 21300000, guid: d9fd605e3c7902342887f9794ab2f928, type: 3}
+  - {fileID: 21300000, guid: 600abc7c050188e4db3cf986abf40897, type: 3}
+  - {fileID: 21300000, guid: b23f51bb95d46e542943a17f7f156c7b, type: 3}
+  - {fileID: 21300000, guid: ef9be4d478658e440af55ed1f914b305, type: 3}
+  gemPrefab: {fileID: 5368184107606928512, guid: 91208f53bab17c24aa9401ca02610b54,
+    type: 3}
+  possibleItemPositions: 9
+  probabilityOfSpawningPerc: 20

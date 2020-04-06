@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Starting Inventory")]
     [SerializeField] int startRed;
     [SerializeField] int startGreen;
     [SerializeField] int startPurple;
     [SerializeField] int startYellow;
+    [Header("Mana Costs")]
+    [SerializeField] int manaCostRed = 20;
+    [SerializeField] int manaCostGreen = 50;
+    [SerializeField] int manaCostYellow = 30;
+    [SerializeField] int manaCostPurple = 40;
+
+    Dictionary<Enumerations.color, int> manaCostDictionary;
     UIGemButton[] gemButtons;
 
     Dictionary<Enumerations.color, int> gemInventory;
+
+    private void Awake()
+    {
+        gemInventory = new Dictionary<Enumerations.color, int>();
+
+        //build mana cost dictionary
+        manaCostDictionary = new Dictionary<Enumerations.color, int>();
+        manaCostDictionary.Add(Enumerations.color.red, manaCostRed);
+        manaCostDictionary.Add(Enumerations.color.green, manaCostGreen);
+        manaCostDictionary.Add(Enumerations.color.yellow, manaCostYellow);
+        manaCostDictionary.Add(Enumerations.color.purple, manaCostPurple);
+    }
     private void Start()
     {
         //set up references
         gemButtons = FindObjectsOfType<UIGemButton>();
-        gemInventory = new Dictionary<Enumerations.color, int>();
         GenerateStartingInventory();
         UpdateGemButtons();
     }
@@ -58,5 +77,10 @@ public class Inventory : MonoBehaviour
                 item.UpdateNumberOfGems(gemInventory[color]);
             }
         }
+    }
+
+    public int GetManaCost(Enumerations.color color)
+    {
+        return manaCostDictionary[color];
     }
 }

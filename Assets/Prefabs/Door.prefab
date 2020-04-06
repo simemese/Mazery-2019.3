@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8567795110223503203}
   - component: {fileID: 7786988814836281565}
   - component: {fileID: 7207453135259585866}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b564463ca712748b4434930887a224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 0
 --- !u!61 &7207453135259585866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13854402, y: 0.014977455}
+  m_Offset: {x: -0.04651597, y: 0.0034737587}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,5 +168,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5195123, y: 0.8498745}
+  m_Size: {x: 0.3354562, y: 0.58145905}
   m_EdgeRadius: 0

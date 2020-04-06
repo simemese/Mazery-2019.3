@@ -8,24 +8,23 @@ public class UIConverterGem : MonoBehaviour
     [SerializeField] Enumerations.color color;
     Text manaCostText;
     UIGemButton[] gemButtons;
+    Inventory inventory;
     // Start is called before the first frame update
+
 
     private void Start()
     {
         manaCostText = gameObject.GetComponentInChildren<Text>();
         gemButtons = FindObjectsOfType<UIGemButton>();
+        inventory = FindObjectOfType<Inventory>();
         GetManaCostOfGem();
     }
 
     private void GetManaCostOfGem()
     {
-        foreach (var item in gemButtons)
-        {
-            if (item.GetButtonColor()==color)
-            {
-                manaCostText.text = item.GetManaCost().ToString();
-            }
-        }
+        int manaCost = inventory.GetManaCost(color);
+        Debug.Log($"Manacost {manaCost} is grabbed for color {color}");
+        manaCostText.text = manaCost.ToString();
     }
 
 }
