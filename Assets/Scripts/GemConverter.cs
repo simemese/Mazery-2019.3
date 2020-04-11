@@ -22,14 +22,14 @@ public class GemConverter : MonoBehaviour, IPointerDownHandler
     {
         if (converterActive)
         {
-            buttonBackground.color = new Color32(110, 207, 219,156);
-            circleBackground.color= new Color32(110, 207, 219, 156);
+            buttonBackground.color = new Color32(255, 225, 0,255);
+            circleBackground.color= new Color32(255, 255, 255, 255);
             converterActive = false;
         }
         else if (!converterActive)
         {
-            buttonBackground.color = new Color32(253, 225, 0, 156);
-            circleBackground.color = new Color32(253, 225, 0, 156);
+            buttonBackground.color = new Color32(255, 255, 255, 255);
+            circleBackground.color = new Color32(255, 255, 255, 255);
             converterActive = true;
         }
 
@@ -48,9 +48,9 @@ public class GemConverter : MonoBehaviour, IPointerDownHandler
                 outputColor = Enumerations.color.purple;
                 break;
             case Enumerations.color.purple:
-                outputColor = Enumerations.color.yellow;
+                outputColor = Enumerations.color.teal;
                 break;
-            case Enumerations.color.yellow:
+            case Enumerations.color.teal:
                 outputColor = Enumerations.color.red;
                 break;
         }

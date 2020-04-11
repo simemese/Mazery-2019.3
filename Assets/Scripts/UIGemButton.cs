@@ -64,7 +64,6 @@ public class UIGemButton : MonoBehaviour,IPointerDownHandler
             //check if number of gems is greater than 0
             if (currentGemNumber > 0)
             {
-                Debug.Log("Gem says good to open door " + color);
                 wizard.OpenDoor(color);
             }
         }

@@ -43,7 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abc06e9a5e4cd541b0bd09b78200a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRed: 5
-  startGreen: 4
-  startPurple: 1
-  startYellow: 2
+  startRed: 10
+  startGreen: 10
+  startPurple: 10
+  startTeal: 10
+  manaCostRed: 20
+  manaCostGreen: 50
+  manaCostTeal: 30
+  manaCostPurple: 40

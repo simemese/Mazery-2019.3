@@ -8,11 +8,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] int startRed;
     [SerializeField] int startGreen;
     [SerializeField] int startPurple;
-    [SerializeField] int startYellow;
+    [SerializeField] int startTeal;
     [Header("Mana Costs")]
     [SerializeField] int manaCostRed = 20;
     [SerializeField] int manaCostGreen = 50;
-    [SerializeField] int manaCostYellow = 30;
+    [SerializeField] int manaCostTeal = 30;
     [SerializeField] int manaCostPurple = 40;
 
     Dictionary<Enumerations.color, int> manaCostDictionary;
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
         manaCostDictionary = new Dictionary<Enumerations.color, int>();
         manaCostDictionary.Add(Enumerations.color.red, manaCostRed);
         manaCostDictionary.Add(Enumerations.color.green, manaCostGreen);
-        manaCostDictionary.Add(Enumerations.color.yellow, manaCostYellow);
+        manaCostDictionary.Add(Enumerations.color.teal, manaCostTeal);
         manaCostDictionary.Add(Enumerations.color.purple, manaCostPurple);
     }
     private void Start()
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
     {
         gemInventory.Add(Enumerations.color.green, startGreen);
         gemInventory.Add(Enumerations.color.red, startRed);
-        gemInventory.Add(Enumerations.color.yellow, startYellow);
+        gemInventory.Add(Enumerations.color.teal, startTeal);
         gemInventory.Add(Enumerations.color.purple, startPurple);
     }
 

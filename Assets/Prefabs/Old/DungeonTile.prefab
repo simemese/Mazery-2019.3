@@ -269,10 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemSpriteList:
-  - {fileID: 21300000, guid: d9fd605e3c7902342887f9794ab2f928, type: 3}
-  - {fileID: 21300000, guid: 600abc7c050188e4db3cf986abf40897, type: 3}
-  - {fileID: 21300000, guid: b23f51bb95d46e542943a17f7f156c7b, type: 3}
-  - {fileID: 21300000, guid: ef9be4d478658e440af55ed1f914b305, type: 3}
+  - {fileID: -8374230631999743586, guid: da95d801e91fa42468a05af4fbcabdc6, type: 3}
+  - {fileID: -2278494747802196567, guid: 1e72dbc0dc178944e8010cc70027a1c4, type: 3}
+  - {fileID: 450820142606020055, guid: 64946511791c4ca49b1bc51c39f1f956, type: 3}
+  - {fileID: 3795160699236350493, guid: f418606934ce31f469f4631709deadda, type: 3}
   gemPrefab: {fileID: 5368184107606928512, guid: 91208f53bab17c24aa9401ca02610b54,
     type: 3}
   possibleItemPositions: 9

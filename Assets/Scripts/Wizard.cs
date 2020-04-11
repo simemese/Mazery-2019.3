@@ -7,9 +7,11 @@ public class Wizard : MonoBehaviour
 
     [SerializeField] bool nearDoor;
     [SerializeField] Enumerations.color doorColor;
+    [SerializeField] Inventory inventory;
+    [SerializeField] float minLootDistance = 0.2f;
+
     Door doorNearPlayer;
     GameObject doorObject;
-    [SerializeField] Inventory inventory;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,8 +38,30 @@ public class Wizard : MonoBehaviour
         if (nearDoor && doorColor==color)
         {
             inventory.UseGems(color, 1);
-            Destroy(doorObject);
+            doorObject.GetComponent<Destroyer>().Disappear();
             nearDoor = false;
+        }
+    }
+
+    private void Update()
+    {
+        LootObject();
+    }
+
+    private void LootObject()
+    {
+        if(Input.GetAxis("Jump")>0)
+        {
+            LootSpawner[] lootSpawners = FindObjectsOfType<LootSpawner>();
+
+            foreach (var item in lootSpawners)
+            {
+                float distance = Vector3.Distance(item.transform.position, gameObject.transform.position);
+                if (distance < minLootDistance)
+                {
+                    item.SpawnLoot();
+                }
+            }
         }
     }
 }

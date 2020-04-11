@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] float speed = 1.0f;
+    [SerializeField] float speed = 10.0f;
+    Animator animator;
+    Rigidbody2D myRigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        animator = GetComponent<Animator>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
 
@@ -22,13 +25,34 @@ public class Mover : MonoBehaviour
 
     private void Move()
     {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        var deltaX = Input.GetAxis("Horizontal") * speed;
+        var deltaY = Input.GetAxis("Vertical") * speed;
 
-        var newXPosition = transform.position.x + deltaX;
-        var newYPosition = transform.position.y + deltaY;
 
-        transform.position = new Vector3(newXPosition, newYPosition,0);
-        transform.eulerAngles = new Vector3(0, 0, 0);
+        myRigidBody.velocity = new Vector2(deltaX, deltaY);
+
+        if (Math.Abs(deltaX) + Math.Abs(deltaY)>0)
+        {
+            TriggerWalk(deltaX, deltaY);
+        }
+        else
+        {
+            TriggerIdle();
+        }
+
+        // TriggerStateAnimation(deltaX, deltaY);
+
     }
+
+    private void TriggerIdle()
+    {
+        animator.SetBool("isWalking", false);
+    }
+    private void TriggerWalk(float deltaX, float deltaY)
+    {
+        animator.SetBool("isWalking", true);
+        animator.SetFloat("xInput", deltaX);
+        animator.SetFloat("yInput", deltaY);
+    }
+
 }

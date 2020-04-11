@@ -23,7 +23,6 @@ public class UIConverterGem : MonoBehaviour
     private void GetManaCostOfGem()
     {
         int manaCost = inventory.GetManaCost(color);
-        Debug.Log($"Manacost {manaCost} is grabbed for color {color}");
         manaCostText.text = manaCost.ToString();
     }
 

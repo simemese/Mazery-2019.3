@@ -4,64 +4,80 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
-    Inventory inventory;
+    
     [SerializeField] float speed = 1f;
-    bool moving=false;
-    GameObject player;
     [SerializeField] Enumerations.color color;
+    [SerializeField] List<Sprite> spriteList;
+    [SerializeField] bool spawned = true;
+    [SerializeField] float minDistance=0.5f;
+    [SerializeField] float minDistanceForDisappearance = 0.02f;
+
     Sprite gemSprite;
+    Wizard wizard;
+    Inventory inventory;
 
     private void Start()
     {
         inventory = FindObjectOfType<Inventory>();
-        gemSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        wizard = FindObjectOfType<Wizard>();
+        
         SetGemColor();
     }
 
     private void Update()
     {
-        if (moving)
+        float distance = Mathf.Abs(Vector3.Distance(gameObject.transform.position, wizard.transform.position));
+        bool closeEnough= distance < minDistance;
+
+        if (spawned)
         {
-            Vector3 target = player.transform.position;
-
-            transform.position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);
-
-            if (transform.position == player.transform.position)
+            if (closeEnough)
             {
-                moving = false;
-                inventory.AddGems(color, 1);
-                Destroy(gameObject);
+                Vector3 target = wizard.transform.position;
+
+                transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+                bool gemIsCloseEnough = Mathf.Abs(Vector3.Distance(transform.position, wizard.transform.position))< minDistanceForDisappearance;
+
+                if (gemIsCloseEnough)
+                {
+                    inventory.AddGems(color, 1);
+                    Destroy(gameObject);
+                }
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag=="Player")
-        {
-            moving = true;
-            player = collision.gameObject;
-
-        }    
-    }
-
     private void SetGemColor()
     {
+        int randomIndex = Random.Range(0, spriteList.Count);
+        gameObject.GetComponent<SpriteRenderer>().sprite = spriteList[randomIndex];
+        gemSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+
         switch (gemSprite.name)
         {
-            case "purpleGem":
+            case "purple_gem_animation_0":
                 color = Enumerations.color.purple;
                 break;
-            case "greenGem":
+            case "green_gem_animation_0":
                 color = Enumerations.color.green;
                 break;
-            case "redGem":
+            case "red_gem_animation_0":
                 color = Enumerations.color.red;
                 break;
-            case "yellowGem":
-                color = Enumerations.color.yellow;
+            case "teal_gem_animation_0":
+                color = Enumerations.color.teal;
                 break;
         }
 
+    }
+
+    public void SetSpawnedStatus(bool spawned)
+    {
+        this.spawned = spawned;
+    }
+    public bool GetSpawnedStatus()
+    {
+        return spawned;
     }
 }

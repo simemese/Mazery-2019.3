@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - Loot
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 424225973
+    locked: 0
+  - name: Backwalls
+    uniqueID: 2915337659
+    locked: 0
+  - name: Objects
+    uniqueID: 4239799547
+    locked: 0
   - name: Player
     uniqueID: 94840799
+    locked: 0
+  - name: Foreground
+    uniqueID: 3435963137
     locked: 0

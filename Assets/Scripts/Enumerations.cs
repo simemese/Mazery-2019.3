@@ -11,7 +11,12 @@ public class Enumerations : MonoBehaviour
 
     public enum color
     {
-        red,purple,green,yellow
+        red,purple,green,teal
+    }
+
+    public enum doorType
+    {
+        front,side
     }
 
 }
