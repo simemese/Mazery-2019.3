@@ -11,6 +11,7 @@ public class Gem : MonoBehaviour
     [SerializeField] bool spawned = true;
     [SerializeField] float minDistance=0.5f;
     [SerializeField] float minDistanceForDisappearance = 0.02f;
+    [SerializeField] AudioClip popSound;
 
     Sprite gemSprite;
     Wizard wizard;
@@ -42,6 +43,7 @@ public class Gem : MonoBehaviour
                 if (gemIsCloseEnough)
                 {
                     inventory.AddGems(color, 1);
+                    AudioSource.PlayClipAtPoint(popSound, Camera.main.transform.position);
                     Destroy(gameObject);
                 }
             }

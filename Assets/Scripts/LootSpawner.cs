@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class LootSpawner : MonoBehaviour
 {
@@ -8,14 +10,21 @@ public class LootSpawner : MonoBehaviour
     [SerializeField] Gem gemPrefab;
     [SerializeField] float speed = 1f;
     [SerializeField] bool looted = false;
+    [SerializeField] float minLootDistance = 10f;
+
     List<Gem> gems;
     Dictionary<Gem, Vector3> targetVectors;
-
+    TextMeshPro hoverText;
+    Wizard wizard;
+    
     // Start is called before the first frame update
     private void Start()
     {
+        hoverText = transform.GetComponentInChildren<TextMeshPro>();
         gems = new List<Gem>();
         targetVectors = new Dictionary<Gem, Vector3>();
+        wizard = FindObjectOfType<Wizard>();
+        hoverText.SetText("");
     }
     public void SpawnLoot()
     {
@@ -73,6 +82,17 @@ public class LootSpawner : MonoBehaviour
 
     private void Update()
     {
+        float distance = Vector3.Distance(wizard.transform.position, gameObject.transform.position);
+        Debug.Log("Is distance " + distance + " smaller than min distance " + minLootDistance);
+        if (distance < minLootDistance)
+        {
+            ShowHoverText();
+        }
+        else
+        {
+            hoverText.SetText("");
+        }
+
         foreach (var gem in gems)
         {
             if (!gem.GetSpawnedStatus())
@@ -85,15 +105,17 @@ public class LootSpawner : MonoBehaviour
                 }   
             }
         }
+    }
 
-        ////clean up spawned gems
-        //for (int i = 0; i < gems.Count; i++)
-        //{
-        //    if (gems[i].GetSpawnedStatus())
-        //    {
-        //        targetVectors.Remove(gems[i]);
-        //        gems.RemoveAt(i);
-        //    }
-        //}
+    public void ShowHoverText()
+    {
+        if (looted)
+        {
+            hoverText.SetText("[Empty]");
+        }
+        else
+        {
+            hoverText.SetText("[Space]");
+        }
     }
 }

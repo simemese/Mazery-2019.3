@@ -17,7 +17,7 @@ public class GameSession : MonoBehaviour
 
         foreach (var item in doorArray)
         {
-            if (item.tag=="Door")
+            if (item.tag=="Door" || item.tag=="SideDoor")
             {
                 int randomIndex = Random.Range(0, 4);
                 Enumerations.color color = Enumerations.color.red;

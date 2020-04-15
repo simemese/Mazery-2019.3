@@ -6,9 +6,12 @@ public class Door : MonoBehaviour
 {
     [SerializeField] Enumerations.color color;
     [SerializeField] List<Sprite> spriteList;
+    [SerializeField] Enumerations.doorType doorType;
+
+
     Animator animator;
     Sprite doorSprite;
-    [SerializeField] Enumerations.doorType doorType;
+
 
 
     // Start is called before the first frame update
@@ -30,13 +33,12 @@ public class Door : MonoBehaviour
 
     private void SetChildColor()
     {
-        if (transform.childCount>0)
+        if (gameObject.tag=="Door")
         {
             GameObject childObject = transform.GetChild(0).gameObject;
             Door childDoor = childObject.GetComponentInChildren<Door>();
             childDoor.SetDoorColor(color);
         }
-
     }
 
     private void SetDoorSprite()

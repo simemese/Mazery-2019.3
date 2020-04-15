@@ -8,14 +8,14 @@ public class Wizard : MonoBehaviour
     [SerializeField] bool nearDoor;
     [SerializeField] Enumerations.color doorColor;
     [SerializeField] Inventory inventory;
-    [SerializeField] float minLootDistance = 0.2f;
+    [SerializeField] float minLootDistance = 0.4f;
 
     Door doorNearPlayer;
     GameObject doorObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag=="Door")
+        if (collision.gameObject.tag == "Door" || collision.gameObject.tag == "SideDoor")
         {
             nearDoor = true;
             doorNearPlayer = collision.gameObject.GetComponent<Door>();
@@ -26,7 +26,7 @@ public class Wizard : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door")
+        if (collision.gameObject.tag == "Door" || collision.gameObject.tag =="SideDoor")
         {
             nearDoor = false;
             doorNearPlayer = null;
@@ -50,13 +50,13 @@ public class Wizard : MonoBehaviour
 
     private void LootObject()
     {
-        if(Input.GetAxis("Jump")>0)
+        if(Input.GetButtonDown("Jump"))
         {
             LootSpawner[] lootSpawners = FindObjectsOfType<LootSpawner>();
 
             foreach (var item in lootSpawners)
             {
-                float distance = Vector3.Distance(item.transform.position, gameObject.transform.position);
+                float distance = Mathf.Abs(Vector3.Distance(item.transform.position, gameObject.transform.position));
                 if (distance < minLootDistance)
                 {
                     item.SpawnLoot();

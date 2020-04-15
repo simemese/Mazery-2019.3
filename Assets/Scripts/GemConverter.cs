@@ -22,7 +22,7 @@ public class GemConverter : MonoBehaviour, IPointerDownHandler
     {
         if (converterActive)
         {
-            buttonBackground.color = new Color32(255, 225, 0,255);
+            buttonBackground.color = new Color32(204, 204,204,140);
             circleBackground.color= new Color32(255, 255, 255, 255);
             converterActive = false;
         }
